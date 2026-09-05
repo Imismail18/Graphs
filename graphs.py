@@ -11,9 +11,16 @@ class Graph:
         self.directed = directed
         self.adj_list = dict()
 
-    def __len__(self):
-        return len(self.adj_list)
+    # returns the length of the graph
+    # Time complexity: O(1)
+    def __len__(self): return len(self.adj_list)
 
+    # looping throgh the graph to return the items of the graph
+    # Time complexity: O(n)
+    def __iter__(self): return iter(self.adj_list)
+
+    # represent all the graph items
+    # Time comlpexity: O(n)
     def __repr__(self):
         graph_str = ""
         for node, neghbors in self.adj_list.items(): graph_str = f"{node} -> {neghbors}\n"
@@ -21,8 +28,7 @@ class Graph:
 
     # Check if a node exists in the graph.
     # Time complexity O(1)
-    def __contains__(self, item):
-        return item in self.adj_list
+    def __contains__(self, item): return item in self.adj_list
 
     # Add a node to the graph.
     # Time complexity O(1)
@@ -67,13 +73,11 @@ class Graph:
 
     # Get all neighbors of a node.
     # Time complexity O(1)
-    def get_nighbors(self, node):
-        return self.adj_list.get(node, set())
+    def get_nighbors(self, node): return self.adj_list.get(node, set())
 
     # Check if a node exists in the graph.
     # Time complexity O(1)
-    def has_node(self, node):
-        return node in self.adj_list
+    def has_node(self, node): return node in self.adj_list
 
     # Check if an edge exists between two nodes.
     # Time complexity O(1)
@@ -83,8 +87,7 @@ class Graph:
 
     # Return a list of all nodes in the graph.
     # Time complexity O(V)
-    def get_nodes(self):
-        return list(self.adj_list.keys())
+    def get_nodes(self): return list(self.adj_list.keys())
 
     # Return a list of all edges in the graph.
     # Time complexity O(V + E)
@@ -135,8 +138,7 @@ class Graph:
                     if neighbor not in visited: stack.append(neighbor)
         return order
 
-    def is_empty(self):
-        return len(self.adj_list) == 0
+    def is_empty(self): return len(self.adj_list) == 0
 
     # Find shortest distances from start node to all other nodes using Dijkstra's algorithm.
     # Time complexity O((V + E) log V)
@@ -220,18 +222,35 @@ class Graph:
         return matrix
 
 
-
    
 
 class DirectedGraph:
     # Initialize an empty directed graph.
     # Time complexity O(1)
-    def __init__(self):
-        self.graph = {}
+    def __init__(self): self.graph = {}
+
+    # returns the length of the graph
+    # Time complexity: O(1)
+    def __len__(self): return len(self.graph)
+
+    # looping throgh the graph to return the items of the graph
+    # Time complexity: O(n)
+    def __iter__(self): return iter(self.graph)
+
+    # represent all the graph items
+    # Time comlpexity: O(n)
+    def __repr__(self):
+        graph_str = ""
+        for node, neghbors in self.graph.items(): graph_str = f"{node} -> {neghbors}\n"
+        return graph_str
+
+    # Check if a node exists in the graph.
+    # Time complexity O(1)
+    def __contains__(self, item): return item in self.graph
 
     # Add a vertex to the directed graph.
     # Time complexity O(1)
-    def add_vertex(self, vertex):
+    def add_vertex(self, vertex): 
         if vertex not in self.graph: self.graph[vertex] = []
 
     # Add a directed edge from start to end vertex.
@@ -256,8 +275,7 @@ class DirectedGraph:
 
     # Check if a directed edge exists from start to end.
     # Time complexity O(n)
-    def has_edge(self, start, end):
-        return start in self.graph and end in self.graph[start]
+    def has_edge(self, start, end): return start in self.graph and end in self.graph[start]
 
     # Return a list of vertices that vertex points to.
     # Time complexity O(1)
@@ -267,27 +285,42 @@ class DirectedGraph:
 
     # Check if the directed graph is empty.
     # Time complexity O(1)
-    def is_empty(self):
-        return len(self.graph) == 0
+    def is_empty(self): return len(self.graph) == 0
 
     # Return the number of vertices in the directed graph.
     # Time complexity O(1)
-    def __len__(self):
-        return len(self.graph)
+    def __len__(self): return len(self.graph)
 
     # Return string representation of the directed graph.
     # Time complexity O(V)
-    def __repr__(self):
-        return str(self.graph)
-
+    def __repr__(self): return str(self.graph)
 
 
 
 
 class WeightedGraph:
     # Initializes an empty weighted graph.
-    def __init__(self):
-        self.graph = {}
+    def __init__(self): self.graph = {}
+
+
+    # returns the length of the graph
+    # Time complexity: O(1)
+    def __len__(self): return len(self.graph)
+
+    # looping throgh the graph to return the items of the graph
+    # Time complexity: O(n)
+    def __iter__(self): return iter(self.graph)
+
+    # represent all the graph items
+    # Time comlpexity: O(n)
+    def __repr__(self):
+        graph_str = ""
+        for node, neghbors in self.graph.items(): graph_str = f"{node} -> {neghbors}\n"
+        return graph_str
+
+    # Check if a node exists in the graph.
+    # Time complexity O(1)
+    def __contains__(self, item): return item in self.graph
 
     # Adds a vertex to the graph.
     def add_vertex(self, vertex):
@@ -316,26 +349,39 @@ class WeightedGraph:
         return self.graph[vertex]
 
     # Returns the number of vertices.
-    def __len__(self):
-        return len(self.graph)
+    def __len__(self): return len(self.graph)
 
     # Checks if the graph is empty.
-    def is_empty(self):
-        return len(self.graph) == 0
+    def is_empty(self): return len(self.graph) == 0
 
     # Returns a string representation.
-    def __repr__(self):
-        return str(self.graph)
-
-
+    def __repr__(self): return str(self.graph)
 
 
 
 class UndirectedGraph:
     # Initializes an empty undirected graph.
     # Time complexity: O(1)
-    def __init__(self):
-        self.graph = {}
+    def __init__(self): self.graph = {}
+
+    # returns the length of the graph
+    # Time complexity: O(1)
+    def __len__(self): return len(self.graph)
+
+    # looping throgh the graph to return the items of the graph
+    # Time complexity: O(n)
+    def __iter__(self): return iter(self.graph)
+
+    # represent all the graph items
+    # Time comlpexity: O(n)
+    def __repr__(self):
+        graph_str = ""
+        for node, neghbors in self.graph.items(): graph_str = f"{node} -> {neghbors}\n"
+        return graph_str
+
+    # Check if a node exists in the graph.
+    # Time complexity O(1)
+    def __contains__(self, item): return item in self.graph
 
     # Adds a vertex to the graph.
     # Time complexity: O(1)
@@ -385,20 +431,15 @@ class UndirectedGraph:
 
     # Returns the number of vertices.
     # Time complexity: O(1)
-    def __len__(self):
-        return len(self.graph)
+    def __len__(self): return len(self.graph)
 
     # Checks if the graph is empty.
     # Time complexity: O(1)
-    def is_empty(self):
-        return len(self.graph) == 0
+    def is_empty(self): return len(self.graph) == 0
 
     # Returns a string representation of the graph.
     # Time complexity: O(V)
-    def __repr__(self):
-        return str(self.graph)
-
-
+    def __repr__(self): return str(self.graph)
 
 
 
@@ -406,8 +447,26 @@ class UndirectedGraph:
 class unweightedGraph:
     # Initializes an empty unweighted graph.
     # Time complexity: O(1)
-    def __init__(self):
-        self.graph = {}
+    def __init__(self): self.graph = {}
+
+    # returns the length of the graph
+    # Time complexity: O(1)
+    def __len__(self): return len(self.graph)
+
+    # looping throgh the graph to return the items of the graph
+    # Time complexity: O(n)
+    def __iter__(self): return iter(self.graph)
+
+    # represent all the graph items
+    # Time comlpexity: O(n)
+    def __repr__(self):
+        graph_str = ""
+        for node, neghbors in self.graph.items(): graph_str = f"{node} -> {neghbors}\n"
+        return graph_str
+
+    # Check if a node exists in the graph.
+    # Time complexity O(1)
+    def __contains__(self, item): return item in self.graph
 
     # Adds a vertex to the graph.
     # Time complexity: O(1) average
@@ -428,11 +487,9 @@ class unweightedGraph:
     # Time complexity: O(n)
     def remove_edge(self, vertex1, vertex2):
         if vertex1 in self.graph and vertex2 in self.graph:
-            if vertex2 in self.graph[vertex1]:
-                self.graph[vertex1].remove(vertex2)
+            if vertex2 in self.graph[vertex1]: self.graph[vertex1].remove(vertex2)
 
-            if vertex1 in self.graph[vertex2]:
-                self.graph[vertex2].remove(vertex1)
+            if vertex1 in self.graph[vertex2]: self.graph[vertex2].remove(vertex1)
 
     # Checks if an edge exists.
     # Time complexity: O(n)
@@ -445,8 +502,7 @@ class unweightedGraph:
     # Returns the neighbors of a vertex.
     # Time complexity: O(1)
     def neighbors(self, vertex):
-        if vertex not in self.graph:
-            raise ValueError("Vertex does not exist")
+        if vertex not in self.graph: raise ValueError("Vertex does not exist")
 
         return self.graph[vertex]
 
@@ -456,25 +512,21 @@ class unweightedGraph:
         if vertex not in self.graph:
             return
 
-        for neighbor in self.graph[vertex]:
-            self.graph[neighbor].remove(vertex)
+        for neighbor in self.graph[vertex]: self.graph[neighbor].remove(vertex)
 
         del self.graph[vertex]
 
     # Returns the number of vertices.
     # Time complexity: O(1)
-    def __len__(self):
-        return len(self.graph)
+    def __len__(self): return len(self.graph)
 
     # Checks if the graph is empty.
     # Time complexity: O(1)
-    def is_empty(self):
-        return len(self.graph) == 0
+    def is_empty(self): return len(self.graph) == 0
 
     # Returns a string representation of the graph.
     # Time complexity: O(V)
-    def __repr__(self):
-        return str(self.graph)
+    def __repr__(self): return str(self.graph)
 
 
 if __name__ == "__main__":
