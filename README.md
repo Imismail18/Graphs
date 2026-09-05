@@ -145,6 +145,7 @@ wg.add_edge("A", "B", weight=5)
 | DFS | O(V + E) |
 | Dijkstra | O((V + E) log V) |
 | To Adjacency Matrix | O(V + E) |
+| looping throgh elements | O(n) |
 
 ## File Structure
 
@@ -155,6 +156,14 @@ graphs.py
 ├── UndirectedGraph       # Undirected graph implementation
 ├── WeightedGraph         # Weighted graph implementation
 └── unweightedGraph       # Unweighted graph implementation
+```
+
+## Project Structure
+
+```text
+Stack/
+├── graphs.py
+├── README.md
 ```
 
 ## Example Output
